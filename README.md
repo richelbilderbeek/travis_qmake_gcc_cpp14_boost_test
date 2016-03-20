@@ -20,3 +20,4 @@ The goal of this project is to have a clean Travis CI build, with specs:
 Less complex builds:
  * Use C++98: [travis_qmake_gcc_cpp98_boost_test](https://www.github.com/richelbilderbeek/travis_qmake_gcc_cpp98_boost_test)
  * Use C++11: [travis_qmake_gcc_cpp11_boost_test](https://www.github.com/richelbilderbeek/travis_qmake_gcc_cpp11_boost_test)
+ * Boost only: [travis_qmake_gcc_cpp14_boost](https://www.github.com/richelbilderbeek/travis_qmake_gcc_cpp14_boost)
