@@ -9,9 +9,23 @@ before_install:
   - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
   - sudo apt-get update -qq
 
-install: sudo apt-get install -qq g++-5
+install: 
+  - sudo apt-get install -qq g++-6
+  - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90
 
 script: 
-  - ./build_normal_debug.sh
-  - ./build_normal_release.sh
-  - ./build_test.sh
+  # Debug
+  - qmake travis_qmake_gcc_cpp14_boost_test.pro
+  - make debug
+  - make clean
+  - ./travis_qmake_gcc_cpp14_boost_test
+  # Release
+  - qmake travis_qmake_gcc_cpp14_boost_test.pro
+  - make release
+  - make clean
+  - ./travis_qmake_gcc_cpp14_boost_test
+  # Test
+  - qmake travis_qmake_gcc_cpp14_boost_test_test.pro
+  - make debug
+  - make clean
+  - ./travis_qmake_gcc_cpp14_boost_test_test
